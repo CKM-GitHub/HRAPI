@@ -24,7 +24,10 @@ namespace HRAPI.Controllers
         // GET api/<controller>/5
         public string GetValue()
         {
-            return "Kyaw Thet";
+            StaffBL projectBL = new StaffBL();
+            Crypto crypto = new Crypto();
+            string s1 = crypto.Encrypt("12345", "forever_arsenal");
+            return s1;
         }
 
         // POST api/<controller>
