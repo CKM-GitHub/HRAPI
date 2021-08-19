@@ -13,12 +13,20 @@ namespace HRAPI.Controllers
     {
         [HttpPost]
         [ActionName("GetStaffLogin")]
-        public IHttpActionResult GetProject([FromBody] StaffModel staffModel)
+        public IHttpActionResult GetStaffLogin([FromBody] StaffModel staffModel)
         {
-            StaffBL projectBL = new StaffBL();
+            StaffBL staffBL = new StaffBL();
             Crypto crypto = new Crypto();
             staffModel.Password = crypto.Encrypt(staffModel.Password, "forever_arsenal");
-            return Ok(projectBL.GetStaffLogin(staffModel));
+            return Ok(staffBL.GetStaffLogin(staffModel));
+        }
+
+        [HttpPost]
+        [ActionName("GetStaffList")]
+        public IHttpActionResult GetStaffList([FromBody] StaffModel staffModel)
+        {
+            StaffBL staffBL = new StaffBL();
+            return Ok(staffBL.GetStaffList(staffModel));
         }
 
         [HttpGet]

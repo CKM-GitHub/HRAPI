@@ -20,6 +20,12 @@ namespace Staff_BL
             staffModel.Sqlprms[0] = new SqlParameter("@LoginName", staffModel.LoginName);
             staffModel.Sqlprms[1] = new SqlParameter("@Password", staffModel.Password);
             return cKMDL.SelectJson("Staff_LoginSelect", ff.GetConnectionWithDefaultPath("HRAPI"), staffModel.Sqlprms);
+        }       
+        public string GetStaffList(StaffModel staffModel)
+        {
+            staffModel.Sqlprms = new SqlParameter[1];
+            staffModel.Sqlprms[0] = new SqlParameter("@ID", staffModel.ID);
+            return cKMDL.SelectJson("Staff_ApiList", ff.GetConnectionWithDefaultPath("HRAPI"), staffModel.Sqlprms);
         }
     }
 }
