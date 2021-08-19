@@ -16,6 +16,8 @@ namespace HRAPI.Controllers
         public IHttpActionResult GetProject([FromBody] StaffModel staffModel)
         {
             StaffBL projectBL = new StaffBL();
+            Crypto crypto = new Crypto();
+            staffModel.Password = crypto.Encrypt(staffModel.Password, "forever_arsenal");
             return Ok(projectBL.GetStaffLogin(staffModel));
         }
 
