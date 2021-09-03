@@ -29,6 +29,14 @@ namespace HRAPI.Controllers
             return Ok(staffBL.GetStaffList(staffModel));
         }
 
+        [HttpPost]
+        [ActionName("GetStaffLeave")]
+        public IHttpActionResult GetStaffLeave([FromBody] StaffModel staffModel)
+        {
+            StaffBL staffBL = new StaffBL();
+            return Ok(staffBL.GetStaffLeave(staffModel));
+        }
+
         [HttpGet]
         [ActionName("GetValue")]
         // GET api/<controller>/5

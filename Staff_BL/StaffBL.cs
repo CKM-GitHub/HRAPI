@@ -27,5 +27,11 @@ namespace Staff_BL
             staffModel.Sqlprms[0] = new SqlParameter("@ID", staffModel.ID);
             return cKMDL.SelectJson("Staff_ApiList", ff.GetConnectionWithDefaultPath("HRAPI"), staffModel.Sqlprms);
         }
+        public string GetStaffLeave(StaffModel staffModel)
+        {
+            staffModel.Sqlprms = new SqlParameter[1];
+            staffModel.Sqlprms[0] = new SqlParameter("@StaffID", staffModel.Staff_ID);
+            return cKMDL.SelectJson("StaffLeaveSelect_Api", ff.GetConnectionWithDefaultPath("HRAPI"), staffModel.Sqlprms);
+        }
     }
 }

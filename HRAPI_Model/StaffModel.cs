@@ -4,6 +4,7 @@
     {   
         public string LoginName { get; set; }
         public string Password { get; set; }    
-        public string ID { get; set; }      
+        public string ID { get; set; }
+        public string Staff_ID { get; set; }
     }
 }
